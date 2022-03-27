@@ -1,0 +1,86 @@
+{% load static %}
+{% include 'stock_app/partials/header.html' %}
+<body>
+{% include 'stock_app/partials/navbar.html' %}
+<div id="fh5co-page">
+
+    <div id="fh5co-intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                    <h2 class="intro-heading">Our Gallery &amp; Collection</h2>
+                    <p><span>Created with <i class="icon-heart3"></i> with Love <a
+                            href="#">DonHardy</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fh5co-photos-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/background.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/background.jpeg' %});">
+                        <div class="desc">
+                            <h3>Camera</h3>
+                            <span>12 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/shutterstock.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/shutterstock.jpeg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/background.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/background.jpeg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/background.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/background.jpeg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/background.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/background.jpeg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 animate-box">
+                    <a href="{% static 'images/background.jpeg' %}" class="grid-photo img-popup"
+                       style="background-image: url({% static 'images/background.jpeg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% include 'stock_app/partials/footer.html' %}
+</div>
+
+{% include 'stock_app/partials/scripts.html' %}
+
+</body>
+</html>
+

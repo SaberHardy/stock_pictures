@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+
+{% include 'stock_app/partials/header.html' %}
+<body>
+{% include 'stock_app/partials/navbar.html' %}
+
+<div id="fh5co-page">
+
+    <div id="fh5co-intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                    <h2 class="intro-heading">About Us</h2>
+                    <p><span>Created with <i class="icon-heart3"></i> with Love <a
+                            href="#">DonHardy</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fh5co-about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                    <div class="about">
+                        <img src="{% static 'images/author.jpg' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <h3>Eloisa Doe</h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                            Semantics. Far far away, behind the word mountains, far from the countries Vokalia and
+                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
+                            coast of the Semantics.</p>
+                        <p class="fh5co-social-icon">
+                            <a href="#"><i class="icon-twitter2"></i></a>
+                            <a href="#"><i class="icon-facebook2"></i></a>
+                            <a href="#"><i class="icon-instagram"></i></a>
+                            <a href="#"><i class="icon-dribbble2"></i></a>
+                            <a href="#"><i class="icon-youtube"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fh5co-photos-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center animate-box">
+                    <div class="heading-section">
+                        <h2>6 Photo Collection</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic7.jpg' %});">
+                        <div class="desc">
+                            <h3>Camera</h3>
+                            <span>12 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic8.jpg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic12.jpg' %});">
+                        <div class="desc">
+                            <h3>Drinks</h3>
+                            <span>45 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic9.jpg' %});">
+                        <div class="desc">
+                            <h3>Camera</h3>
+                            <span>12 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic14.jpg' %});">
+                        <div class="desc">
+                            <h3>Wedding</h3>
+                            <span>100 Photos</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 animate-box">
+                    <a href="#" class="grid-photo" style="background-image: url({% static 'images/pic11.jpg' %});">
+                        <div class="desc">
+                            <h3>Drinks</h3>
+                            <span>45 Photos</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'stock_app/partials/footer.html' %}
+</div>
+{% include 'stock_app/partials/scripts.html' %}
+
+</body>
+</html>
+
