@@ -19,16 +19,18 @@
         <div class="container">
             <div class="row text-center">
                 {% for pict in pictures %}
+
                     <div class="card border-info img-card">
-                        <a href="{% url 'detail' pict.id %}" >
+                        <a href="{% url 'detail' pict.id %}">
                             <img class="card-img-top" src="{{ pict.image.url }}"
-                             style="width: 240px; height: 280px"
-                             alt="Card image cap">
-                            </a>
+                                 style="width: 240px; height: 280px"
+                                 alt="Card image cap">
+                        </a>
                         <div class="card-body">
-                            <a href="{% url 'detail' pict.id %}" class="card-title float-left">{{ pict.title|upper }}</a>
-                            <a href="#" type="submit" class="btn btn-info btn-sm float-right mb-4 mt-1">Like</a>
+                            <a href="{% url 'detail' pict.id %}" class="card-title">
+                                {{ pict.title|upper }}</a><br>
                         </div>
+                        <a href="#" type="submit" class="btn btn-info btn-sm mb-4 mt-1">Like</a>
                     </div>
                 {% endfor %}
             </div>
