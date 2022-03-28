@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center animate-box">
                     <h2 class="intro-heading">Our Gallery &amp; Collection</h2>
-                     <p><span>Created with <i class="icon-heart3 text-danger"></i> with Love <a
+                    <p><span>Created with <i class="icon-heart3 text-danger"></i> with Love <a
                             href="#">DonHardy</a></span></p>
                 </div>
             </div>
@@ -18,62 +18,19 @@
     <div id="fh5co-photos-section">
         <div class="container">
             <div class="row text-center">
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
+                {% for pict in pictures %}
+                    <div class="card border-info img-card">
+                        <a href="{% url 'detail' pict.id %}" >
+                            <img class="card-img-top" src="{{ pict.image.url }}"
+                             style="width: 240px; height: 280px"
+                             alt="Card image cap">
+                            </a>
+                        <div class="card-body">
+                            <a href="{% url 'detail' pict.id %}" class="card-title float-left">{{ pict.title|upper }}</a>
+                            <a href="#" type="submit" class="btn btn-info btn-sm float-right mb-4 mt-1">Like</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
-                <div class="card border-info img-card">
-                    <img class="card-img-top" src="{% static 'images/background.jpeg' %}"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{% url 'home' %}" class="card-title float-left">Card title</a>
-                        <a href="#" type="submit" class="btn btn-info float-right mb-4">Like</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
