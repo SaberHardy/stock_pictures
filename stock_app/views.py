@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from stock_app.forms import RegisterForm
 from stock_app.models import PictureModel
@@ -81,3 +81,8 @@ def logout_page(request):
     logout(request)
     return render(request, 'stock_app/accounts/login.html')
 
+
+def delete(request, id):
+    deletes_pict = get_object_or_404(PictureModel, id=id)
+    deletes_pict.delete()
+    return redirect('gallery')

@@ -21,15 +21,21 @@
                     <h5 class="card-title" style="font-weight: bold; font-size: 20px">
                         <i class="bi bi-geo-alt text-danger"></i> {{ pict_detailed.title|upper }}</h5>
                     <p class="card-text">{{ pict_detailed.description }}</p>
-                    <p class="card-text"><small class="text-muted">{{ pict_detailed.date_created }}</small>
-                        <button class="noselect float-right rotated" title="Like">
-                            <a class="btn-like" href="{% url 'gallery' %}">
-                                Like
-                            </a>
-                        </button>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            {{ pict_detailed.date_created }}</small>
+                        {% if user.is_authenticated %}
+                            <span class="float-right mx-3 my-3" style="display: inline-block;">4</span>
+                            <button class="noselect float-right rotated" title="Like">
+                                <a class="btn-like" href="{% url 'gallery' %}">
+                                    Like
+                                </a>
+                            </button>
+
+                        {% endif %}
                     </p>
                 </div>
-                <a href="{% url 'gallery' %}" type="button" class="btn btn-info float-right">Back To Gallery</a>
+                <a href="{% url 'gallery' %}" type="button" class="btn btn-warning float-right">Back To Gallery</a>
 
             </div>
         </div>
