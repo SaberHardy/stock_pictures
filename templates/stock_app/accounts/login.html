@@ -39,6 +39,9 @@
             <span>or use your account</span>
             <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
+            {% for message in messages %}
+                <p id="message" style="color: red; font-weight: bold;">{{ message }}</p>
+            {% endfor %}
             <a href="#">Forgot your password?</a>
             <button type="submit">Login</button>
         </form>

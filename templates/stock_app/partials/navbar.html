@@ -4,7 +4,9 @@
     <a href="{% url 'home' %}">
         <img src="{% static 'images/logo_image.jpeg' %}" height="80" width="80"
              class="rounded-circle"></a>
-    <a class="navbar-brand name-site" href="{% url 'home' %}">{{ user.username|capfirst }}</a>
+    <a class="navbar-brand name-site" href="{% url 'home' %}">
+        {% if user.username %}{{ user.username|capfirst }}{% else %}Anonymous{% endif %}
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,10 +36,10 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 {% if user.is_authenticated %}
-                    <a class="dropdown-item" href="{% url 'contact' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 {% else %}
-                    <a class="dropdown-item" href="{% url 'contact' %}">Login</a>
-                    <a class="dropdown-item" href="{% url 'contact' %}">Register</a>
+                    <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
                 {% endif %}
             </div>
         </li>

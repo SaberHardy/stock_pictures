@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -55,12 +56,14 @@ def login_page(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+        else:
+            messages.info(request, 'User name or password is incorrect')
     context = {
     }
     return render(request, 'stock_app/accounts/login.html', context)
 
 
-def register(request):
+def register_page(request):
     form = RegisterForm()
 
     if request.method == "POST":
@@ -72,3 +75,9 @@ def register(request):
         'form': form,
     }
     return render(request, 'stock_app/accounts/login.html', context)
+
+
+def logout_page(request):
+    logout(request)
+    return render(request, 'stock_app/accounts/login.html')
+
