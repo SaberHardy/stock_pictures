@@ -40,3 +40,15 @@ def detail(request, id):
         'pict_detailed': pict_detailed
     }
     return render(request, 'stock_app/detail_pic.html', context)
+
+
+def login(request):
+    context = {
+    }
+    return render(request, 'stock_app/accounts/login.html', context)
+
+
+def register(request):
+    context = {
+    }
+    return render(request, 'stock_app/accounts/register.html', context)
