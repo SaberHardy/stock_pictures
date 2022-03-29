@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
+from stock_app.forms import RegisterForm
 from stock_app.models import PictureModel
 
 
@@ -9,6 +12,7 @@ def home(request):
     context = {
         'pictures': pictures,
         'pictures_count': pictures_count,
+        'total_user': User.objects.all().count()
     }
     return render(request, 'stock_app/index.html', context)
 
@@ -42,13 +46,29 @@ def detail(request, id):
     return render(request, 'stock_app/detail_pic.html', context)
 
 
-def login(request):
+def login_page(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
     context = {
     }
     return render(request, 'stock_app/accounts/login.html', context)
 
 
 def register(request):
+    form = RegisterForm()
+
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
     context = {
+        'form': form,
     }
-    return render(request, 'stock_app/accounts/register.html', context)
+    return render(request, 'stock_app/accounts/login.html', context)
