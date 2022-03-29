@@ -4,7 +4,11 @@ from stock_app.models import PictureModel
 
 
 def home(request):
-    return render(request, 'stock_app/index.html')
+    pictures = PictureModel.objects.all()
+    context = {
+        'pictures': pictures
+    }
+    return render(request, 'stock_app/index.html', context)
 
 
 def gallery(request):
@@ -14,7 +18,10 @@ def gallery(request):
 
 
 def services(request):
-    return render(request, 'stock_app/services.html')
+    last_three = PictureModel.objects.all().order_by('-date_created')[:3]
+    total_images = PictureModel.objects.all().count()
+    context = {'last_three': last_three, 'total_images': total_images}
+    return render(request, 'stock_app/services.html', context)
 
 
 def about(request):

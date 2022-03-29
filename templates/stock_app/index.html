@@ -9,7 +9,7 @@
                 <div class="col-md-8 col-md-offset-2 animate-box text-center">
                     <h2 class="intro-heading">
                         The best Photography site</h2>
-                    <p><span>Created with <i class="icon-heart3 text-danger"></i> with Love at <a
+                    <p><span>Created with <i class="icon-heart3 text-danger"></i> with Love <a
                             href="#">Don Hardy</a></span></p>
                 </div>
             </div>
@@ -20,31 +20,16 @@
             <div id="ri-grid" class="ri-grid animate-box">
                 <img class="ri-loading-image" src="{% static 'images/loading.gif' %}" alt="no-img"/>
                 <ul>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images/background.jpeg' %}" alt="no-img"/>
-                            <div class="desc">
-                                <h3>Album<br><span>129 Photos</span></h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images/background.jpeg' %}" alt="no-img"/>
-                            <div class="desc">
-                                <h3>Album<br><span>129 Photos</span></h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'images/image2.jpeg' %}" alt="no-img"/>
-                            <div class="desc">
-                                <h3>Album<br><span>129 Photos</span></h3>
-                            </div>
-                        </a>
-                    </li>
-
+                    {% for pict in pictures %}
+                        <li>
+                            <a href="{% url 'gallery' %}">
+                                <img src="{{ pict.image.url }}" alt="no-img"/>
+                                <div class="desc">
+                                    <h3>Album<br><span>{{ pict.title }}</span></h3>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

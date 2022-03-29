@@ -59,33 +59,18 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-md-4 animate-box">
-                    <a href="#" class="grid-photo"
-                       style="background-image: url({% static 'images/background.jpeg' %});">
-                        <div class="desc">
-                            <h3>Camera</h3>
-                            <span>12 Photos</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 animate-box">
-                    <a href="#" class="grid-photo"
-                       style="background-image: url({% static 'images/background.jpeg' %});">
-                        <div class="desc">
-                            <h3>Wedding</h3>
-                            <span>100 Photos</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 animate-box">
-                    <a href="#" class="grid-photo"
-                       style="background-image: url({% static 'images/background.jpeg' %});">
-                        <div class="desc">
-                            <h3>Drinks</h3>
-                            <span>45 Photos</span>
-                        </div>
-                    </a>
-                </div>
+                {% for pict in last_three %}
+                    <div class="col-md-4 animate-box">
+                        <a href="{% url 'detail' pict.id %}" class="grid-photo"
+                           style="background-image: url({{ pict.image.url }});">
+                            <div class="desc">
+                                <h3>{{ pict.title|upper }}</h3>
+                                <span>Total: {{ total_images }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>

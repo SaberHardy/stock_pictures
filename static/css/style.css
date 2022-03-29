@@ -572,7 +572,7 @@ header .fh5co-navbar-brand .fh5co-logo:active, header .fh5co-navbar-brand .fh5co
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(250, 126, 10, 0.8);
+    /*background: rgba(250, 126, 10, 0.8);*/
     padding-top: 140px;
     opacity: 0;
     -webkit-transition: 0.3s;
@@ -863,7 +863,7 @@ input[type="text"] {
 
 .img-card img {
     max-width: 25rem;
-    border-radius: 15px 20px 5px 5px;
+    border-radius: 19px 18px 5px 5px;
     display:inline-block;
 }
 /*# sourceMappingURL=style.css.map */
