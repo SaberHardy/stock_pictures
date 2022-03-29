@@ -5,8 +5,10 @@ from stock_app.models import PictureModel
 
 def home(request):
     pictures = PictureModel.objects.all()
+    pictures_count = pictures.count()
     context = {
-        'pictures': pictures
+        'pictures': pictures,
+        'pictures_count': pictures_count,
     }
     return render(request, 'stock_app/index.html', context)
 
