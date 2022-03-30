@@ -14,4 +14,6 @@ urlpatterns = [
     path('logout/', views.logout_page, name='logout'),
     path('delete/<int:id>/', views.delete, name='delete'),
 
+    path('like/<int:id>/', views.like_unlike_picture, name='like'),
+
 ]
