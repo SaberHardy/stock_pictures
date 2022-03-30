@@ -31,12 +31,12 @@
                                 <span class="float-right mx-3 my-3"
                                       style="display: inline-block;">{{ pict_detailed.total_likes }}</span>
                                 <button type="submit" value="{{ pict_detailed.id }}"
-                                        class=" float-right rotated" title="Like" name="picture_liked">
+                                        class="btn btn-success float-right rotated" title="Like" name="picture_liked">
                                     Like
                                 </button>
                             {% else %}
                                 <button type="submit" value="{{ pict_detailed.id }}"
-                                        class="noselect float-right rotated" title="Like" name="picture_liked">
+                                        class="btn btn-danger float-right rotated" title="Like" name="picture_liked">
                                     Unlike
                                 </button>
                             {% endif %}

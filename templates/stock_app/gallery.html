@@ -17,29 +17,42 @@
     <div id="fh5co-photos-section">
         <div class="container">
             <div class="row text-center">
-                {% for pict in pictures %}
+                {% for picture in pictures %}
 
                     <div class="card border-info img-card">
-                        <a href="{% url 'detail' pict.id %}">
-                            <img class="card-img-top" src="{{ pict.image.url }}"
+                        <a href="{% url 'detail' picture.id %}">
+                            <img class="card-img-top" src="{{ picture.image.url }}"
                                  style="width: 240px; height: 280px"
                                  alt="Card image cap">
                         </a>
                         <div class="card-body">
-                            <a href="{% url 'detail' pict.id %}" class="card-title">
-                                {{ pict.title|upper }}</a><br>
+                            <a href="{% url 'detail' picture.id %}" class="card-title">
+                                {{ picture.title|upper }}</a><br>
                         </div>
-                            <a href="{% if not user.is_authenticated %}
-                                        {% url 'login' %}
-                                      {% endif %}"
-                               type="submit" class="btn btn-info btn-sm mb-4 mt-1">Like</a>
 
-                            {% if user.is_staff %}
-                                <a href="#" type="submit" class="mx-3 float-right">
-                                    <i class="bi bi-pencil-square text-success"></i></a>
-                                <a href="{% url 'delete' pict.id %}" type="submit" class="mx-3 float-right">
-                                    <i class="bi bi-trash3-fill text-danger"></i></a>
+                        <form action="{% url 'like' picture.id %}" method="POST">
+                            {% csrf_token %}
+                            {% if user.is_authenticated %}
+                                {% if not liked %}
+                                    <button type="submit" value="{{ picture.id }}"
+                                            class="btn btn-success mb-3" title="Like" name="picture_liked">
+                                        Like
+                                    </button>
+                                {% else %}
+                                    <button type="submit" value="{{ picture.id }}"
+                                            class="btn btn-warning mb-3" title="Like" name="picture_liked">
+                                        Unlike
+                                    </button>
+                                {% endif %}
                             {% endif %}
+                        </form>
+
+                        {% if user.is_staff %}
+                            <a href="#" type="submit" class="mx-3 float-right">
+                                <i class="bi bi-pencil-square text-success"></i></a>
+                            <a href="{% url 'delete' picture.id %}" type="submit" class="mx-3 float-right">
+                                <i class="bi bi-trash3-fill text-danger"></i></a>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
