@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
-from stock_app.forms import RegisterForm
+from stock_app.forms import RegisterForm, AddPictureForm
 from stock_app.models import PictureModel
 
 
@@ -106,3 +106,17 @@ def like_unlike_picture(request, id):
         liked = True
 
     return HttpResponseRedirect(reverse('detail', args=[str(id)]))
+
+
+def add_picture(request):
+    title = 'Create'
+    form = AddPictureForm(request.POST or None, request.FILES or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('home'))
+    context = {
+        'title': title,
+        'form': form,
+    }
+    return render(request, 'stock_app/add_picture_form.html', context)
