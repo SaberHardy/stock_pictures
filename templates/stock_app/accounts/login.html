@@ -43,7 +43,7 @@
             {% for message in messages %}
                 <p id="message" style="color: red; font-weight: bold;">{{ message }}</p>
             {% endfor %}
-            <a href="#">Forgot your password?</a>
+            <a href="{% url 'password_reset' %}">Forgot your password?</a>
             <a href="{% url 'home' %}" class="btn btn-default">Visit as gest</a>
             <button type="submit">Login</button>
         </form>

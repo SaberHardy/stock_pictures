@@ -1,5 +1,6 @@
 from django.urls import path
 from stock_app import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -15,5 +16,17 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete, name='delete'),
 
     path('like/<int:id>/', views.like_unlike_picture, name='like'),
+
+    path('reset_password/', auth_views.PasswordResetView.as_view(
+        template_name='stock_app/accounts/password_reset.html'), name='password_reset'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(
+        template_name='stock_app/accounts/password_email_sent.html'
+    ), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name='stock_app/accounts/password_reset_form.html'
+    ), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='stock_app/accounts/password_reset_done.html'
+    ), name='password_reset_complete'),
 
 ]
