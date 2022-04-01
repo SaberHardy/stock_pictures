@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from stock_app.models import PictureModel
+from .models import CATEGORY_PICTURES
 
 
 class RegisterForm(UserCreationForm):
@@ -27,8 +28,21 @@ class RegisterForm(UserCreationForm):
             self.fields[field].help_text = None
 
 
+choices = CATEGORY_PICTURES
+
+
 class AddPictureForm(forms.ModelForm):
     class Meta:
         model = PictureModel
         fields = '__all__'
         exclude = ('like', 'date_created',)
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control mb-5',
+                                            'placeholder': 'Type your title here'}),
+            'description': forms.Textarea(attrs={'class': 'form-control mb-5',
+                                                 'placeholder': 'Type your description here'}),
+
+            # 'image': forms.ImageField(),
+            'category': forms.Select(choices=choices, attrs={'class': 'dropdown my-5'}),
+        }

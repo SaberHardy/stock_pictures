@@ -8,10 +8,10 @@
         <form method="POST" action="." enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_table }}
-            <button class="btn btn-success" type="submit">Add Picture</button>
+            <button class="btn btn-success my-3" type="submit">Add Picture</button>
         </form>
     </div>
-    {% else %}
+{% else %}
 
     <h1 class="text-center mt-5">Sorry sir, but you are not allowed to be here!</h1>
 {% endif %}
