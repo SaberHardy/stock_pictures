@@ -29,6 +29,7 @@ urlpatterns = [
         template_name='stock_app/accounts/password_reset_done.html'
     ), name='password_reset_complete'),
 
-    path('add_picture/', views.add_picture, name='add_picture')
+    path('add_picture/', views.add_picture, name='add_picture'),
+    path('update_picture/<int:id>/', views.update_picture, name='update_picture')
 
 ]

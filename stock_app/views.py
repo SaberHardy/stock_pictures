@@ -120,3 +120,21 @@ def add_picture(request):
         'form': form,
     }
     return render(request, 'stock_app/add_picture_form.html', context)
+
+
+def update_picture(request, id):
+    title = 'Update'
+    picture_update = get_object_or_404(PictureModel, id=id)
+    form = AddPictureForm(request.POST or None,
+                          request.FILES or None,
+                          instance=picture_update)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {
+        'title': title,
+        'form': form,
+    }
+    return render(request, 'stock_app/add_picture_form.html', context)

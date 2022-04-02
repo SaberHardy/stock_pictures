@@ -46,3 +46,9 @@ class AddPictureForm(forms.ModelForm):
             # 'image': forms.ImageField(),
             'category': forms.Select(choices=choices, attrs={'class': 'dropdown my-5'}),
         }
+
+
+# class UpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = PictureModel
+#         fields = ('title', 'description', 'image', 'category')

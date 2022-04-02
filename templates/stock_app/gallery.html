@@ -48,7 +48,7 @@
                         </form>
 
                         {% if user.is_staff %}
-                            <a href="#" type="submit" class="mx-3 float-right">
+                            <a href="{% url 'update_picture' picture.id %}" type="submit" class="mx-3 float-right">
                                 <i class="bi bi-pencil-square text-success"></i></a>
                             <a href="{% url 'delete' picture.id %}" type="submit" class="mx-3 float-right">
                                 <i class="bi bi-trash3-fill text-danger"></i></a>
