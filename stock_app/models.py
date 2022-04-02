@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 CATEGORY_PICTURES = (('Commercial', 'Commercial'),
                      ('Documentary', 'Documentary'),
@@ -31,3 +32,6 @@ class PictureModel(models.Model):
 
     def total_likes(self):
         return self.like.count()
+
+    def get_absolute_url(self):
+        return reverse('home')

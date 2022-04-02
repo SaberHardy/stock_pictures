@@ -3,17 +3,27 @@ from stock_app import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('gallery/', views.gallery, name='gallery'),
-    path('services/', views.services, name='services'),
+    # path('', views.home, name='home'),
+    path('', views.HomeViewClass.as_view(), name='home'),
+
+    # path('gallery/', views.gallery, name='gallery'),
+    path('gallery/', views.GalleryViewClass.as_view(), name='gallery'),
+
+    # path('services/', views.services, name='services'),
+    path('services/', views.ServicesViewClass.as_view(), name='services'),
+
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('detail/<int:id>/', views.detail, name='detail'),
+
+    # path('detail/<int:id>/', views.detail, name='detail'),
+    path('<int:pk>/detail/', views.DetailViewClass.as_view(), name='detail'),
 
     path('login/', views.login_page, name='login'),
     path('register/', views.register_page, name='register'),
     path('logout/', views.logout_page, name='logout'),
-    path('delete/<int:id>/', views.delete, name='delete'),
+
+    # path('delete/<int:id>/', views.delete, name='delete'),
+    path('<int:pk>/delete/', views.DeletePictureView.as_view(), name='delete'),
 
     path('like/<int:id>/', views.like_unlike_picture, name='like'),
 
@@ -29,7 +39,9 @@ urlpatterns = [
         template_name='stock_app/accounts/password_reset_done.html'
     ), name='password_reset_complete'),
 
-    path('add_picture/', views.add_picture, name='add_picture'),
-    path('update_picture/<int:id>/', views.update_picture, name='update_picture')
+    path('add_picture/', views.CreatePicture.as_view(), name='add_picture'),
+
+    # path('update_picture/<int:id>/', views.update_picture, name='update_picture'),
+    path('update_picture/<int:pk>/', views.UpdatePictureView.as_view(), name='update_picture')
 
 ]
