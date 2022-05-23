@@ -3,13 +3,13 @@
 {% include 'stock_app/partials/navbar.html' %}
 
 {% if user.is_authenticated and user.is_staff %}
-    <div class="col-4 offset-4 mb-5 mt-5">
+    <div class="col-lg-offset-4 mb-5 mt-5">
         <h3>Delete {{ title }} Picture</h3>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <p>Are you sure you want to delete {{ object }}?</p>
             {{ form }}
-            <button class="btn btn-success my-3" type="submit">Delete</button>
+            <button class="btn btn-danger my-3" type="submit">Delete</button>
         </form>
     </div>
 {% else %}
